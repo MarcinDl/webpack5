@@ -8,4 +8,4 @@ console.log(sum2(2,3));
 let heading = document.querySelector("#demo"),
     sumValue = sum(10,5);
 
-heading.innerText = `10+5= ${sumValue}`
+heading.innerText = `10+10= ${sumValue}`
