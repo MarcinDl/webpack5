@@ -4,8 +4,8 @@ module.exports = {
     entry: "./src/index.js",
     output: {
         path: path.resolve(__dirname,"dist"),
-        filename: "[contenthash].bundle.js",
-        clean: true
+        filename: "bundle.js",
+        // clean: true
     },
     devtool: "source-map",
     devServer: {
@@ -13,5 +13,14 @@ module.exports = {
             directory: path.join(__dirname,"dist"),
         },
         port: 9000
+    },
+    module: {
+        rules: [{
+            test: /\.css$/,
+            use: [
+                "style-loader",
+                "css-loader"
+            ]
+        }]
     }
 }

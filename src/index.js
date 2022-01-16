@@ -1,5 +1,6 @@
 const sum  = require("./sum").sum;
 import { sum2 } from "./sum2";
+import { style } from './css/index.css';
 
 console.log("Hello World");
 console.log(sum(2,3));
