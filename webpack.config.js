@@ -4,11 +4,14 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-    entry: "./src/index.js",
+    entry: {
+        index: "./src/index.js",
+        kontakt: "./src/kontakt.js"
+    },
     output: {
         path: path.resolve(__dirname,"dist"),
-        filename: "bundle.js",
-        // clean: true
+        filename: "[name].[contenthash].bundle.js",
+        clean: true
     },
     devtool: "source-map",
     devServer: {
@@ -19,7 +22,15 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: "./src/index.html"
+            template: "./src/index.html",
+            inject: true,
+            chunks: ['index']
+        }),
+        new HtmlWebpackPlugin({
+            template: "./src/kontakt.html",
+            inject: true,
+            chunks: ['index2'],
+            filename: "kontakt.html"
         }),
         new MiniCssExtractPlugin(),
         new CopyWebpackPlugin({
